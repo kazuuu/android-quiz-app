@@ -28,6 +28,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener{
 
         mQuestionsList = Constants.getQuestions()
 
+        val progressBar: ProgressBar = findViewById(R.id.progressBar)
+        progressBar.setMax(mQuestionsList!!.size)
+
         setQuestion()
 
         val tv_optionOne: TextView = findViewById(R.id.tv_optionOne)
