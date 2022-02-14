@@ -7,19 +7,20 @@
     android:fillViewport="true"
     tools:context=".QuizQuestionsActivity"
 >
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_height="match_parent"
         android:padding="16dp"
     >
         <TextView
             android:id="@+id/tv_question"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="What country does this flag belong to?"
-            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/iv_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="10dp"
             android:textSize="22sp"
             android:textColor="#363A43"
@@ -29,53 +30,56 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:src="@drawable/ic_flag_of_argentina" />
+            android:src="@drawable/ic_flag_of_argentina"
+            app:layout_constraintTop_toBottomOf="@+id/tv_question"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-        <LinearLayout
-            android:id="@+id/ll_progress_details"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:max="10"
+            android:minHeight="50dp"
+            android:progress="2"
+            android:indeterminate="false"
             android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-        >
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:progressBarStyleHorizontal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:max="10"
-                android:minHeight="50dp"
-                android:progress="2"
-                android:indeterminate="false"
-
+            app:layout_constraintTop_toBottomOf="@+id/iv_image"
+            app:layout_constraintBottom_toTopOf="@+id/tv_optionOne"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_progressBar"
             />
 
-            <TextView
-                android:id="@+id/tv_progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:gravity="center"
-                android:textSize="14sp"
-                android:textColorHint="#7A8089"
-                android:text=""
+        <TextView
+            android:id="@+id/tv_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColorHint="#7A8089"
+            android:text="01/01"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/progressBar"
             />
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_optionOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="15dp"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:gravity="center"
             android:background="@drawable/default_option_border_bg"
             android:textColor="#7A8089"
             android:textSize="18sp"
             android:text="Argentina"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
             />
 
 
@@ -83,39 +87,43 @@
             android:id="@+id/tv_optionTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="15dp"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:gravity="center"
             android:background="@drawable/default_option_border_bg"
             android:textColor="#7A8089"
             android:textSize="18sp"
             android:text="Argentina"
+            app:layout_constraintTop_toBottomOf="@+id/tv_optionOne"
+
             />
 
         <TextView
             android:id="@+id/tv_optionThree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="15dp"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:gravity="center"
             android:background="@drawable/default_option_border_bg"
             android:textColor="#7A8089"
             android:textSize="18sp"
             android:text="Argentina"
+            app:layout_constraintTop_toBottomOf="@+id/tv_optionTwo"
             />
 
         <TextView
             android:id="@+id/tv_optionFour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="15dp"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:gravity="center"
             android:background="@drawable/default_option_border_bg"
             android:textColor="#7A8089"
             android:textSize="18sp"
             android:text="Argentina"
+            app:layout_constraintTop_toBottomOf="@+id/tv_optionThree"
             />
 
         <Button
@@ -128,11 +136,8 @@
             android:text="SUBMIT"
             android:textSize="18dp"
             android:textStyle="bold"
-
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_optionFour"
         />
-
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
